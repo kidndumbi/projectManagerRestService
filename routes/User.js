@@ -7,7 +7,6 @@ const {user} = require('../models/user');
 UserRouters.post('/register', function (req, res) {
 
    let newUser = new user({  
-       userName: "Cassava",
        password: "megaman4",
        email: "kidndumbi@gmail.com"
 
