@@ -8,7 +8,7 @@ UserRouters.post('/register', function (req, res) {
 
    let newUser = new user({  
        password: "megaman4",
-       email: "kidndumbi@gmail.com"
+       email: "kidndumbigmail.com"
 
    });
 
