@@ -5,7 +5,9 @@ var validator = require('validator');
 var user = db.model('users', {
 
     password: {
-        type: String
+        type: String,
+        required: true,
+        minlength: 8
     },
 
     email: {
@@ -19,7 +21,19 @@ var user = db.model('users', {
             },
             message: '{VALUE} is not a valid email'
         }
-    }
+    },
+
+    tokens: [{
+        access: {
+            type: String,
+            required: true
+        },
+        token: {
+            type: String,
+            required: true
+        }
+
+    }]
 
 });
 

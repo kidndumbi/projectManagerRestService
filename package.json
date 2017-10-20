@@ -4,7 +4,7 @@
   "description": "rest service for project management app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon server.js"
   },
   "author": "cassava ndumbi",
@@ -12,8 +12,12 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "lodash": "^4.17.4",
     "mongoose": "^4.12.3",
-    "mongoose-unique-validator": "^1.0.6",
     "validator": "^9.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
   }
 }
