@@ -8,6 +8,9 @@ const userController = require('../controllers/user_controller')
 
 UserRouters.post('/register', userController.registerNewUser);
 
+//testing private routes
+UserRouters.get('/me', userController.onlyMe);
+
 
 
 module.exports = {UserRouters}

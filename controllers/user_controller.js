@@ -6,6 +6,8 @@ const {user} = require('../models/user');
 
         let newUser = new user(req.body);
 
+ 
+
            newUser.save().then(() => {
 
             return newUser.generateAuthTokens();
@@ -16,6 +18,30 @@ const {user} = require('../models/user');
             }).catch(next);
 
             
+
+      },
+
+      //testing how to make private routes
+      onlyMe(req, res, next) {
+
+        
+
+        let token = req.header('x-auth');
+
+        user.findByToken(token).then((user) => {
+
+            if(!user){
+              return Promise.reject(e);
+            }
+
+            res.send(user);
+
+        }).catch(() => {
+            res.status(401).send({message: "authentication is required", status: 401});
+
+        });
+
+
 
       }
 
