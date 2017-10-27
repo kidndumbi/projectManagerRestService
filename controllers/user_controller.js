@@ -6,8 +6,13 @@ const {user} = require('../models/user');
 
         let newUser = new user(req.body);
 
-           newUser.save().then((doc) => {
-               res.status(200).send(doc)
+           newUser.save().then(() => {
+
+            return newUser.generateAuthTokens();
+
+
+            }).then((token) => {
+                res.status(200).header('x-auth', token ).send(newUser.toJSON())
             }).catch(next);
 
             
